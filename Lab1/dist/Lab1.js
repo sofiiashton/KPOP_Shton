@@ -10,12 +10,17 @@ var Category;
 ;
 function getAllworkers() {
     let workers = [
-        { Name: 'Ivan', surname: 'Ivanov', available: true, salary: 1000, Category: Category.QA },
-        { Name: 'Petro', surname: 'Petrov', available: true, salary: 1500, Category: Category.BusinessAnalyst },
-        { Name: 'Vasyl', surname: 'Vasyliev', available: false, salary: 1600, Category: Category.Developer },
-        { Name: 'Evgen', surname: 'Zhukov', available: true, salary: 1300, Category: Category.Designer }
+        { id: 1, Name: 'Ivan', surname: 'Ivanov', available: true, salary: 1000, Category: Category.QA },
+        { id: 2, Name: 'Petro', surname: 'Petrov', available: true, salary: 1500, Category: Category.BusinessAnalyst },
+        { id: 3, Name: 'Vasyl', surname: 'Vasyliev', available: false, salary: 1600, Category: Category.Developer },
+        { id: 4, Name: 'Evgen', surname: 'Zhukov', available: true, salary: 1300, Category: Category.Designer }
     ];
     return workers;
+}
+;
+console.log(`\nМасив робітників:`);
+for (var w of getAllworkers()) {
+    console.log(w);
 }
 function logFirstAvailable(arr) {
     console.log(`\nКількість робітників: ${arr.length}`);
@@ -51,5 +56,26 @@ else {
     for (var i in mySurnames) {
         console.log(mySurnames[i]);
     }
+}
+console.log(`\nІмена та прізвища робітників, які належать категорії Developer:`);
+getAllworkers().forEach(worker => {
+    if (worker.Category == 1) {
+        console.log(worker.Name, worker.surname);
+    }
+});
+let myID = 1;
+function getWorkerByID(id) {
+    let arr = getAllworkers().filter(function (worker) {
+        return worker.id === myID;
+    });
+    return arr;
+}
+if (typeof getWorkerByID(myID) === 'undefined') {
+    console.log(`\nУ масиві немає робітників за індексом ${myID}.`);
+}
+else {
+    console.log(`\nРобітник за індексом ${myID}:`);
+    var myWorker = getWorkerByID(myID);
+    console.log(myWorker);
 }
 //# sourceMappingURL=Lab1.js.map
