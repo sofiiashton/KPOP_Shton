@@ -99,7 +99,7 @@ console.log("\nВиклик функції з двома параметрами:
 createCustomer("Sam", 26);
 console.log("\nВиклик функції з трьома параметрами:");
 createCustomer("Sam", 26, "New Jersey");
-console.log("Виклик функції getWorkersNamesByCategory без параметра:");
+console.log("\nВиклик функції getWorkersNamesByCategory без параметра:");
 if (typeof getWorkersNamesByCategory() === 'undefined') {
     console.log(`\nУ масиві немає робітників, які належать категорії ${myCategory}.`);
 }
