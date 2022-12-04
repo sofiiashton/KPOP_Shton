@@ -23,7 +23,7 @@ for(var w of getAllworkers()) {
     console.log(w)
 }
 
-function logFirstAvailable(arr:any[]) {
+function logFirstAvailable(arr:any[]=getAllworkers()) {
     
     // кількість робітників
     console.log(`\nКількість робітників: ${arr.length}`)
@@ -41,7 +41,7 @@ function logFirstAvailable(arr:any[]) {
 logFirstAvailable(getAllworkers());
 
 // 2. Enum
-function getWorkersNamesByCategory(cat:Category) {
+function getWorkersNamesByCategory(cat:Category = Category.Designer) {
 
     let surnames:string[] = [];
 
@@ -85,7 +85,7 @@ getAllworkers().forEach( worker => {
 let workerID:number = 1
 
 function getWorkerByID(id:number) {
-    let arrowFunc = getAllworkers().find(worker=>worker.id===workerID)
+    let arrowFunc = getAllworkers().find(worker=>worker.id===id)
     return arrowFunc
 }
 
@@ -133,3 +133,41 @@ createCustomer("Sam", 26)
 console.log("\nВиклик функції з трьома параметрами:")
 createCustomer("Sam", 26, "New Jersey")
 
+// Виклик функції getWorkersNamesByCategory без параметра
+
+console.log("Виклик функції getWorkersNamesByCategory без параметра:")
+
+if(typeof getWorkersNamesByCategory() === 'undefined') {
+    console.log(`\nУ масиві немає робітників, які належать категорії ${myCategory}.`)
+} else {
+    console.log(`\nПрізвища робітників, які належать категорії ${Category[myCategory]}:`)
+
+    var mySurnames:string[] = getWorkersNamesByCategory()!
+    for(var i in mySurnames) {
+        console.log(mySurnames[i])
+    }
+}
+
+// Виклик функції logFirstAvailable без параметра
+logFirstAvailable()
+
+// Створіть функцію сheckoutWorkers()
+function checkoutWorkers(customer:string, workerIDs:number[]):any[] {
+    
+    var workers:any[] = []
+
+    for (const i of workerIDs) {
+        if(getWorkerByID(i)!.available === true) {
+            workers.push(getWorkerByID(i))
+        } 
+    }
+
+    console.log(`\nІм'я замовника: ${customer}`)
+    return workers
+}
+
+var checkoutWorkerID = [1, 2, 4]
+var myWorkers = checkoutWorkers('Ann', checkoutWorkerID)
+myWorkers.forEach(worker => {
+    console.log(worker)
+});

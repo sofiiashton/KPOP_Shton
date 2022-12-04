@@ -22,7 +22,7 @@ console.log(`\nМасив робітників:`);
 for (var w of getAllworkers()) {
     console.log(w);
 }
-function logFirstAvailable(arr) {
+function logFirstAvailable(arr = getAllworkers()) {
     console.log(`\nКількість робітників: ${arr.length}`);
     console.log(`\nДоступні робітники:`);
     for (var w of arr) {
@@ -32,7 +32,7 @@ function logFirstAvailable(arr) {
     }
 }
 logFirstAvailable(getAllworkers());
-function getWorkersNamesByCategory(cat) {
+function getWorkersNamesByCategory(cat = Category.Designer) {
     let surnames = [];
     for (var w of getAllworkers()) {
         if (w.Category == cat) {
@@ -65,7 +65,7 @@ getAllworkers().forEach(worker => {
 });
 let workerID = 1;
 function getWorkerByID(id) {
-    let arrowFunc = getAllworkers().find(worker => worker.id === workerID);
+    let arrowFunc = getAllworkers().find(worker => worker.id === id);
     return arrowFunc;
 }
 if (typeof (getWorkerByID(workerID)) === 'undefined') {
@@ -97,6 +97,33 @@ console.log("\nВиклик функції одним параметром:");
 createCustomer("Sam");
 console.log("\nВиклик функції з двома параметрами:");
 createCustomer("Sam", 26);
-console.log("\nВиклик функції з двома параметрами:");
+console.log("\nВиклик функції з трьома параметрами:");
 createCustomer("Sam", 26, "New Jersey");
+console.log("Виклик функції getWorkersNamesByCategory без параметра:");
+if (typeof getWorkersNamesByCategory() === 'undefined') {
+    console.log(`\nУ масиві немає робітників, які належать категорії ${myCategory}.`);
+}
+else {
+    console.log(`\nПрізвища робітників, які належать категорії ${Category[myCategory]}:`);
+    var mySurnames = getWorkersNamesByCategory();
+    for (var i in mySurnames) {
+        console.log(mySurnames[i]);
+    }
+}
+logFirstAvailable();
+function checkoutWorkers(customer, workerIDs) {
+    var workers = [];
+    for (const i of workerIDs) {
+        if (getWorkerByID(i).available === true) {
+            workers.push(getWorkerByID(i));
+        }
+    }
+    console.log(`\nІм'я замовника: ${customer}`);
+    return workers;
+}
+var checkoutWorkerID = [1, 2, 4];
+var myWorkers = checkoutWorkers('Ann', checkoutWorkerID);
+myWorkers.forEach(worker => {
+    console.log(`\nРезультат виклику функції сheckoutWorkers('Ann', 1, 2, 4): ${worker.name}, ${worker.surname}`);
+});
 //# sourceMappingURL=Lab1.js.map
