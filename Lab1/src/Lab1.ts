@@ -1,3 +1,4 @@
+// Категорії робітників
 enum Category { 
     BusinessAnalyst, 
     Developer, 
@@ -16,13 +17,13 @@ function getAllworkers() {
     return workers;
     };
     
-// print all workers
+// Виведення всіх робітників
 console.log(`\nМасив робітників:`)
-
 for(var w of getAllworkers()) {
     console.log(w)
 }
 
+// Функція, яка виводить доступних робітників
 function logFirstAvailable(arr:any[]=getAllworkers()) {
     
     // кількість робітників
@@ -40,7 +41,7 @@ function logFirstAvailable(arr:any[]=getAllworkers()) {
 
 logFirstAvailable(getAllworkers());
 
-// 2. Enum
+// 2. Enum. Функція, що виводить прізвища робітників, які належать вказаній категорії
 function getWorkersNamesByCategory(cat:Category = Category.Designer) {
 
     let surnames:string[] = [];
@@ -72,8 +73,9 @@ if(typeof getWorkersNamesByCategory(myCategory) === 'undefined') {
     }
 }
 
-// 3. Стрілочні функції
+// 3. Стрілочні функції.
 
+// Виведення робітників, які належать категорії Developer
 console.log(`\nІмена та прізвища робітників, які належать категорії Developer:`)
 
 getAllworkers().forEach( worker => {
@@ -82,6 +84,7 @@ getAllworkers().forEach( worker => {
     }
 });
 
+// Виведення робітника за його ID
 let workerID:number = 1
 
 function getWorkerByID(id:number) {
@@ -97,7 +100,7 @@ if(typeof(getWorkerByID(workerID)) === 'undefined') {
     console.log(getWorkerByID(workerID))
 }
 
-// 4. Типи функцій
+// 4. Типи функцій. 
 function createCustomerID(name:string, id:number):string {
     return name + " " + id;
 }
@@ -135,7 +138,7 @@ createCustomer("Sam", 26, "New Jersey")
 
 // Виклик функції getWorkersNamesByCategory без параметра
 
-console.log("Виклик функції getWorkersNamesByCategory без параметра:")
+console.log("\nВиклик функції getWorkersNamesByCategory без параметра:")
 
 if(typeof getWorkersNamesByCategory() === 'undefined') {
     console.log(`\nУ масиві немає робітників, які належать категорії ${myCategory}.`)
@@ -151,7 +154,7 @@ if(typeof getWorkersNamesByCategory() === 'undefined') {
 // Виклик функції logFirstAvailable без параметра
 logFirstAvailable()
 
-// Створіть функцію сheckoutWorkers()
+// Створення функції сheckoutWorkers()
 function checkoutWorkers(customer:string, workerIDs:number[]):any[] {
     
     var workers:any[] = []
@@ -166,6 +169,7 @@ function checkoutWorkers(customer:string, workerIDs:number[]):any[] {
     return workers
 }
 
+// Результат виклику функції сheckoutWorkers()
 var checkoutWorkerID = [1, 2, 4]
 var myWorkers = checkoutWorkers('Ann', checkoutWorkerID)
 myWorkers.forEach(worker => {

@@ -124,6 +124,6 @@ function checkoutWorkers(customer, workerIDs) {
 var checkoutWorkerID = [1, 2, 4];
 var myWorkers = checkoutWorkers('Ann', checkoutWorkerID);
 myWorkers.forEach(worker => {
-    console.log(`\nРезультат виклику функції сheckoutWorkers('Ann', 1, 2, 4): ${worker.name}, ${worker.surname}`);
+    console.log(worker);
 });
 //# sourceMappingURL=Lab1.js.map
