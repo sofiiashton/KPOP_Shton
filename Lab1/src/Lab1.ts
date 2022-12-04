@@ -20,7 +20,7 @@ function getAllworkers() {
 console.log(`\nМасив робітників:`)
 
 for(var w of getAllworkers()) {
-        console.log(w)
+    console.log(w)
 }
 
 function logFirstAvailable(arr:any[]) {
@@ -82,22 +82,54 @@ getAllworkers().forEach( worker => {
     }
 });
 
-let myID:number = 1
+let workerID:number = 1
 
-function getWorkerByID(id:number){
-
-    let workerFound = getAllworkers().filter(function(worker) {
-        return worker.id === myID;
-    });
-
-    return workerFound
+function getWorkerByID(id:number) {
+    let arrowFunc = getAllworkers().find(worker=>worker.id===workerID)
+    return arrowFunc
 }
 
-if(typeof getWorkerByID(myID) === 'undefined') {
-    console.log(`\nУ масиві немає робітників за індексом ${myID}.`)
+if(typeof(getWorkerByID(workerID)) === 'undefined') {
+    console.log(`\nУ масиві немає робітників за індексом ${workerID}.`)
 } else {
-    console.log(`\nРобітник за індексом ${myID}:`)
+    console.log(`\nРобітник за індексом ${workerID}:`)
 
-    var myWorker = getWorkerByID(myID)!
-    console.log(myWorker)
+    console.log(getWorkerByID(workerID))
 }
+
+// 4. Типи функцій
+function createCustomerID(name:string, id:number):string {
+    return name + " " + id;
+}
+
+let myID:string = createCustomerID("Ann", 10)
+
+console.log(`\nФункція createCustomerID: ${myID}`)
+
+let IDGenerator = (name:string,id:number) => name + " " + id;
+
+console.log(`\nСтрілочна функція: ${IDGenerator("Ann", 10)}`)
+
+// 5. Необхідні, додаткові та залишкові параметри
+function createCustomer(name:string, age?:number, city?:string) {
+    if(age && city) { 
+        console.log(`${name}, ${age}, ${city}`)
+    } else if(age) {
+        console.log(`${name}, ${age}`)
+    } else {
+        console.log(`${name}`)
+    }
+}
+
+// Виклик функції з одним параметром
+console.log("\nВиклик функції одним параметром:")
+createCustomer("Sam")
+
+// Виклик функції з двома параметрами
+console.log("\nВиклик функції з двома параметрами:")
+createCustomer("Sam", 26)
+
+// Виклик функції з трьома параметрами
+console.log("\nВиклик функції з трьома параметрами:")
+createCustomer("Sam", 26, "New Jersey")
+

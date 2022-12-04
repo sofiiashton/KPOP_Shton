@@ -63,19 +63,40 @@ getAllworkers().forEach(worker => {
         console.log(worker.Name, worker.surname);
     }
 });
-let myID = 1;
+let workerID = 1;
 function getWorkerByID(id) {
-    let arr = getAllworkers().filter(function (worker) {
-        return worker.id === myID;
-    });
-    return arr;
+    let arrowFunc = getAllworkers().find(worker => worker.id === workerID);
+    return arrowFunc;
 }
-if (typeof getWorkerByID(myID) === 'undefined') {
-    console.log(`\nУ масиві немає робітників за індексом ${myID}.`);
+if (typeof (getWorkerByID(workerID)) === 'undefined') {
+    console.log(`\nУ масиві немає робітників за індексом ${workerID}.`);
 }
 else {
-    console.log(`\nРобітник за індексом ${myID}:`);
-    var myWorker = getWorkerByID(myID);
-    console.log(myWorker);
+    console.log(`\nРобітник за індексом ${workerID}:`);
+    console.log(getWorkerByID(workerID));
 }
+function createCustomerID(name, id) {
+    return name + " " + id;
+}
+let myID = createCustomerID("Ann", 10);
+console.log(`\nФункція createCustomerID: ${myID}`);
+let IDGenerator = (name, id) => name + " " + id;
+console.log(`\nСтрілочна функція: ${IDGenerator("Ann", 10)}`);
+function createCustomer(name, age, city) {
+    if (age && city) {
+        console.log(`${name}, ${age}, ${city}`);
+    }
+    else if (age) {
+        console.log(`${name}, ${age}`);
+    }
+    else {
+        console.log(`${name}`);
+    }
+}
+console.log("\nВиклик функції одним параметром:");
+createCustomer("Sam");
+console.log("\nВиклик функції з двома параметрами:");
+createCustomer("Sam", 26);
+console.log("\nВиклик функції з двома параметрами:");
+createCustomer("Sam", 26, "New Jersey");
 //# sourceMappingURL=Lab1.js.map
