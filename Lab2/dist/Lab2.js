@@ -33,7 +33,7 @@ function printWorker(w) {
 printWorker(getWorkerByID(1));
 const logPrize = { prize: 'Car' };
 function getPrize(p) {
-    console.log(p);
+    console.log(`\nPrize: ${p.prize}`);
 }
 getPrize(logPrize);
 let authorName = "J. R. R. Tolkien";
@@ -47,7 +47,7 @@ class UniversityLibrarian {
         this.department = department;
     }
     assistCustomer(custName) {
-        console.log(`${this.name} is assisting ${custName}`);
+        console.log(`\n${this.name} is assisting ${custName}`);
     }
 }
 let favoriteLibrarian = { name: "Petro Petrov", email: "ppetrov@gmail.com", department: "Administration" };
