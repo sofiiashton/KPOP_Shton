@@ -1,15 +1,4 @@
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-  <!-- userId Column -->
-  <ng-container matColumnDef="userId">
-    <mat-header-cell *matHeaderCellDef> userID </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.userId}} </mat-cell>
-  </ng-container>
-
-  <!-- id Column -->
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-  </ng-container>
 
   <!-- title Column -->
   <ng-container matColumnDef="title">
@@ -39,4 +28,3 @@
                [length]="this.listPosts.length"
                 showFirstLastButtons>
 </mat-paginator>
-<p>Favorites:</p>

@@ -3,9 +3,8 @@ import { AfterViewInit, Component, Inject, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Post } from './web.service';
-import { MatButtonModule } from '@angular/material/button'; 
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 @Component ({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +16,7 @@ export class AppComponent {
   title = 'lab5';
 
   listPosts:Post[] = []
-  displayedColumns: string[] = ['userId', 'id', 'title', 'body', 'actions'];
+  displayedColumns: string[] = ['title', 'body', 'actions'];
 
   dataSource: any
 
@@ -35,21 +34,19 @@ constructor(private web:WebService, private dialog: MatDialog) {
 openDialog(row) {
   this.dialog.open(ExampleDialog, {
     width: '500px',
-    data: row,
+    data: row
   })
 }
 }
 
 @Component({
   selector: "example-dialog",
-  // templateUrl: "example-dialog.component.html"
   template: `
-            <div>userId: {{ngOnInit().userId}}</div>
-            <div>Id: {{ngOnInit().id}}</div>
-            <div>Title: {{ngOnInit().title}}</div>
-            <div>Body: {{ngOnInit().body}}</div>`,
-            
-  styleUrls: ['./example-dialog.component.css']
+            <p>userId: {{ngOnInit().userId}}</p>
+            <p>Id: {{ngOnInit().id}}</p>
+            <p>Title: {{ngOnInit().title}}</p>
+            <p>Body: {{ngOnInit().body}}</p>`,
+  styleUrls: ['./app.component.css']
 })
 export class ExampleDialog {
   constructor(

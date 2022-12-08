@@ -1,4 +1,4 @@
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,12 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatDialogModule } from '@angular/material/dialog';
-import { ChildComponent } from './child.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ChildComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +26,7 @@ import { ChildComponent } from './child.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [AppComponent, ChildComponent]
+  exports: [AppComponent]
 
 })
 export class AppModule { }

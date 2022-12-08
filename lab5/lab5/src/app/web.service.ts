@@ -17,12 +17,6 @@ export class WebService {
 
     constructor(private http : HttpClient) {}
 
-    // httpOptions = {
-    //     headers: new HttpHeaders ({
-    //         'Content-type': 'application/json'
-    //     })
-    // }
-
     getPost(): Observable <Post[]>{
         return this.http.get<Post[]>(this.apiUrl)
     }
