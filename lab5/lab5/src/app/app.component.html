@@ -1,0 +1,50 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- userId Column -->
+  <ng-container matColumnDef="userId">
+    <mat-header-cell *matHeaderCellDef> userID </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.userId}} </mat-cell>
+  </ng-container>
+
+  <!-- id Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+  <!-- title Column -->
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+  </ng-container>
+
+  <!-- body Column -->
+  <ng-container matColumnDef="body">
+    <mat-header-cell *matHeaderCellDef> Body </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+               [pageSize]="5"
+               [length]="this.listPosts.length"
+                showFirstLastButtons>
+</mat-paginator>
+
+<div>
+  <h3>
+    Click Log
+  </h3>
+</div>
+
+<div *ngIf="!clickedRows.size">
+  Clicked rows will be logged here
+</div>
+
+<ul>
+  <li *ngFor="let clickedRow of clickedRows">
+    Clicked on {{clickedRow.id}}
+  </li>
+</ul>
