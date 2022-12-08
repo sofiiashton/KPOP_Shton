@@ -1,28 +1,64 @@
 .demo-table {
-    width: 100%;
-  }
-  
+  width: 100%;
+}
+
+.mat-column-userId {
+  width: 15% !important;
+  flex: 0 0 15% !important;
+  padding-left: 50px;
+}
+
+.mat-column-id {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 15% !important;
+  width: 15% !important;
+}
+
+.mat-column-title {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 15% !important;
+  width: 15% !important;
+}
+
+.mat-column-body {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 25% !important;
+  width: 25% !important;
+}
+
+.mat-column-actions {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 15% !important;
+  width: 15% !important;
+}
+
   .mat-mdc-row .mat-mdc-cell {
-    border-bottom: 1px solid transparent;
-    border-top: 1px solid transparent;
+    border-color:lightgray;
     cursor: pointer;
-  }
-  
-  .mat-mdc-row:hover .mat-mdc-cell {
-    border-color: currentColor;
   }
   
   .demo-row-is-clicked {
     font-weight: bold;
   }
 
-  
-.mat-table {
-    overflow: auto;
-    max-height: 500px;
-  }
-  
   .element-row {
     position: relative;
   }
   
+
+  .mat-dialog-container {
+    font-weight: bold;
+  }
+
+.mat-dialog-title {
+    color: white;
+    background-color: #F48043;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    padding: 20px 0px !important;
+}
