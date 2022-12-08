@@ -1,4 +1,4 @@
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
   <!-- userId Column -->
   <ng-container matColumnDef="userId">
     <mat-header-cell *matHeaderCellDef> userID </mat-header-cell>
@@ -23,6 +23,13 @@
     <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="actions">
+    <mat-header-cell  *matHeaderCellDef > Actions </mat-header-cell>
+    <mat-cell *matCellDef="let row" >
+         <button mat-button (click)="openDialog(row)">Get Details</button>
+    </mat-cell>
+  </ng-container>
+
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
@@ -32,19 +39,4 @@
                [length]="this.listPosts.length"
                 showFirstLastButtons>
 </mat-paginator>
-
-<div>
-  <h3>
-    Click Log
-  </h3>
-</div>
-
-<div *ngIf="!clickedRows.size">
-  Clicked rows will be logged here
-</div>
-
-<ul>
-  <li *ngFor="let clickedRow of clickedRows">
-    Clicked on {{clickedRow.id}}
-  </li>
-</ul>
+<p>Favorites:</p>
